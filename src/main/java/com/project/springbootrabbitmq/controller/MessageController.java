@@ -15,7 +15,9 @@ public class MessageController {
     public MessageController(RabbitMqProducer rabbitMqProducer) {
         this.rabbitMqProducer = rabbitMqProducer;
     }
+
     //http://localhost:9000/api/springRabbitMq/publish?message=hello
+
     @GetMapping("/publish")
     public ResponseEntity<String> sendMessage(@RequestParam("message") String message){
         rabbitMqProducer.sendMessage(message);
